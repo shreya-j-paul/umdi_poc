@@ -68,6 +68,10 @@ Ingestion status (SUCCESS, PARTIAL_SUCCESS, or FAILED).
 3. Quarantine & Data Quality
 If quarantine: true is set in the YAML, any records failing the dq_rules are diverted to a <target_table>_quarantine table instead of being dropped, allowing for easy data reconciliation.
 
+
+Pipeline sample images for POC
+
+
 📝 Example Configuration (ingestion_config.yaml)
 YAML
 - target_table: "postgre_users_table"
