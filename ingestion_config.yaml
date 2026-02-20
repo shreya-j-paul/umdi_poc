@@ -1,0 +1,45 @@
+datasets:
+  - target_table: "sales_table"
+    is_active: true
+    source_path: "/Volumes/v4c_dev/umdi_poc/source_files/structured/"
+    source_type: "file"
+    format: "csv"
+    load_strategy: "MERGE"
+    primary_keys: ["TransactionID"]
+    scd_type: 2
+    # pii_mask: true
+    quarantine: true
+    dq_rules:
+      valid_qty: "Quantity > 0"
+      valid_id: "TransactionID IS NOT NULL"
+    tags:
+      cost_center: "Sales_Dept"
+      owner: "sales_admin"
+
+  - target_table: "employees_table"
+    is_active: true
+    source_path: "/Volumes/v4c_dev/umdi_poc/source_files/structured-1/"
+    source_type: "file"
+    format: "csv"
+    load_strategy: "OVERWRITE"
+    quarantine: true
+    dq_rules:
+      valid_id: "id IS NOT NULL"
+
+  - target_table: "customers_table"
+    is_active: true
+    source_path: "/Volumes/v4c_dev/umdi_poc/source_files/semi-structured/"
+    source_type: "file"
+    format: "json"
+    load_strategy: "APPEND"
+
+  ##finally jdbc ingestion works smoothly from aiven > postgre service
+  - target_table: "postgre_users_table"
+    is_active: false
+    source_type: "jdbc_source"
+    format: "jdbc"
+    source_path: "jdbc:postgresql://pg-10b7a61f-v4c-2d0e.d.aivencloud.com:20878/sample?ssl=require"
+    dbtable: "sample_schema.users"
+    user: "avnadmin"
+    password: "removed" # need to remove this hardcoded password and store it in secrets
+    load_strategy: "APPEND"
