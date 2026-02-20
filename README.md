@@ -69,10 +69,7 @@ Ingestion status (SUCCESS, PARTIAL_SUCCESS, or FAILED).
 If quarantine: true is set in the YAML, any records failing the dq_rules are diverted to a <target_table>_quarantine table instead of being dropped, allowing for easy data reconciliation.
 
 
-Pipeline sample images for POC
-
-
-📝 Example Configuration (ingestion_config.yaml)
+### 📝 Example Configuration (ingestion_config.yaml)
 YAML
 - target_table: "postgre_users_table"
   is_active: true
@@ -83,6 +80,8 @@ YAML
   user: "avnadmin"
   password: "your_password"
   load_strategy: "APPEND"
+
+  
 ### Important Note for 
 [!CAUTION]
 If you change the Catalog or Schema names, ensure you update the schema_loc variable inside the generate_pipeline_nodes function in Ingestion_engine.py to match your new Volume path.
