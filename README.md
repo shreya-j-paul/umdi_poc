@@ -26,7 +26,7 @@ To run this pipeline in your own Databricks environment, follow these steps:
 In src/Ingestion_engine.py, find the EXECUTION block at the bottom. You must change the CONFIG_PATH to point to the location of your ingestion_config.yaml in your workspace:
 
 Python
-# Change this to your actual Workspace or Repo path
+### Change this to your actual Workspace or Repo path
 CONFIG_PATH = "/Workspace/Users/<your-email>/<project-folder>/ingestion_config.yaml"
 2. Configure JDBC Credentials (Aiven)
 For security, do not hardcode passwords in the YAML file for production.
