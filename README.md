@@ -38,13 +38,7 @@ The current code expects the password in the YAML. It is highly recommended to r
 3. Creating the DLT Pipeline
 Go to Delta Live Tables in Databricks and click Create Pipeline.
 
-Pipeline Name: V4C_Modular_Ingestion
-
-Product Edition: Advanced (Required for DQ rules/Quarantine).
-
-Pipeline Mode: Triggered (Batch) or Continuous (Streaming).
-
-Source Code: Select src/Ingestion_engine.py from your repository.
+Set Pipeline Name, configs
 
 Destination:
 
