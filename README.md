@@ -1,4 +1,4 @@
-## V4C Modular Ingestion Engine
+## MetaData driven Ingestion Engine
 A generic, configuration-driven Delta Live Tables (DLT) ingestion engine designed to handle both CloudFiles (Auto Loader) and JDBC (Aiven PostgreSQL) sources within the Databricks Lakehouse.
 
 ### 🏗 Data Architecture & Catalog Structure
